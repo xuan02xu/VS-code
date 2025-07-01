@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>撿紅點計算器</title>
+</head>
+<body>
+    <h1>撿紅點輸贏計算器</h1>
+    <label for="point">請輸入你的點數：</label>
+    <input type="number" id="point" name="point" required>
+    <button onclick="calculate()">送出</button>
+    <h2 id="result"></h2>
+
+    <script>
+        function calculate() {
+            const point = parseInt(document.getElementById('point').value);
+            let value, result;
+
+            if (isNaN(point)) {
+                result = "請輸入有效的數字";
+            } else if (point >= 70) {
+                value = (point - 70) * 5;
+                result = `贏 ${value} 元`;
+            } else {
+                value = (70 - point) * 5;
+                result = `輸 ${value} 元`;
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
